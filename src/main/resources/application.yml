@@ -1,0 +1,14 @@
+# GENERAL CONFIG
+server:
+  servlet.context-path: / # Context path of the application.
+  port: ${SERVER_PORT:8080} # Server HTTP port.
+springdoc:
+  api-docs:
+    groups:
+      enabled: true
+  swagger-ui:
+    path: /swagger-ui.html
+    display-request-duration: true
+    groups-order: DESC
+    operations-sorter: alpha
+    tags-sorter: alpha
