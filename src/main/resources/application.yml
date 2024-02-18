@@ -12,3 +12,7 @@ springdoc:
     groups-order: DESC
     operations-sorter: alpha
     tags-sorter: alpha
+amazon.dynamodb.endpoint: http://localhost:8000/
+amazon.aws.accesskey: ${AWS_ACCESS_KEY:access-test}
+amazon.aws.secretkey: ${AWS_SECRET_KEY:secret-test}
+cloud.aws.sqs.orders-queue: ${AWS_SQS_URL:localhost:5003/}
