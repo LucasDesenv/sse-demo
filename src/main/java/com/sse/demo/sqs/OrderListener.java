@@ -19,6 +19,7 @@ public class OrderListener {
     OrderMessage orderMessage = null;
     try {
       orderMessage = objectMapper.readValue(message, OrderMessage.class);
+      log.info("Message received: {}", orderMessage);
     } catch (JsonProcessingException e) {
       log.error(e.getMessage(), e);
       throw new RuntimeException(e);

@@ -1,4 +1,4 @@
-package com.sse.demo.sse;
+package com.sse.demo.rest;
 
 import org.springframework.http.codec.ServerSentEvent;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -14,7 +14,7 @@ import java.util.List;
 
 @RestController
 @RequestMapping("/sse-webflux")
-public class ServerSentEventWebFluxAPI {
+public class ServerSentEventController {
 
   private static List<String> WORDS = Arrays.asList("SSE_1", "SSE_2", "SSE_3", "SSE_4", "SSE_5");
 

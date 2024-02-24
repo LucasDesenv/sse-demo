@@ -15,6 +15,7 @@ import org.springframework.beans.factory.annotation.Value;
 import org.springframework.cloud.aws.messaging.config.annotation.EnableSqs;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
+import org.springframework.context.annotation.Profile;
 
 /**
  * To deploy a DynamoDB in a private access:
@@ -25,6 +26,7 @@ import org.springframework.context.annotation.Configuration;
  * 4.1 - Assign the endpoint to the Dynamodb service.
  * 5 - Set Env variables AWS_ACCESS_KEY and AWS_SECRET_KEY
  */
+@Profile("!test")
 @Configuration
 @EnableDynamoDBRepositories(basePackageClasses = {OrderRepository.class})
 @EnableSqs

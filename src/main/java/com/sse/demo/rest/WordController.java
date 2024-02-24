@@ -1,4 +1,4 @@
-package com.sse.demo.sse;
+package com.sse.demo.rest;
 
 import io.swagger.v3.oas.annotations.Operation;
 import io.swagger.v3.oas.annotations.tags.Tag;
@@ -17,7 +17,7 @@ import reactor.core.publisher.Sinks;
 @RestController
 @RequestMapping("/words")
 @Tag(name = "Words event-simulation")
-public class WordsAPI {
+public class WordController {
 
   private final Sinks.Many<String> wordsStream = Sinks.many().replay().latest();
   @Operation(summary = "Adds a new word")

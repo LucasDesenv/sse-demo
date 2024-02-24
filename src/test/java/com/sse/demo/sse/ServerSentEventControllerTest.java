@@ -1,9 +1,11 @@
 package com.sse.demo.sse;
 
+import com.sse.demo.domain.repositories.OrderRepository;
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.autoconfigure.web.reactive.AutoConfigureWebTestClient;
 import org.springframework.boot.test.context.SpringBootTest;
+import org.springframework.boot.test.mock.mockito.MockBean;
 import org.springframework.core.ParameterizedTypeReference;
 import org.springframework.http.MediaType;
 import org.springframework.http.codec.ServerSentEvent;
@@ -13,10 +15,12 @@ import reactor.test.StepVerifier;
 
 @SpringBootTest(webEnvironment = SpringBootTest.WebEnvironment.RANDOM_PORT)
 @AutoConfigureWebTestClient
-public class ServerSentEventWebFluxAPITest {
+public class ServerSentEventControllerTest {
 
   @Autowired
   private WebTestClient webTestClient;
+  @MockBean
+  private OrderRepository orderRepository;
   @Test
   public void shouldSubscribeToStream(){
     ParameterizedTypeReference<ServerSentEvent<String>> type
