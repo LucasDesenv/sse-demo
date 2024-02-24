@@ -7,18 +7,18 @@ import reactor.core.publisher.Sinks;
 
 @Component
 public class OrderNotifier {
-  private final Sinks.Many<Order> ordersStream;
+  private final Sinks.Many<OrderMessage> ordersStream;
 
   public OrderNotifier(){
-    Sinks.Many<Order> onlyLatestEvents = Sinks.many().replay().latest();
+    Sinks.Many<OrderMessage> onlyLatestEvents = Sinks.many().replay().latest();
     ordersStream = onlyLatestEvents;
   }
 
-  void notifyNewOrder(Order order){
-    ordersStream.tryEmitNext(order);
+  void notifyNewOrder(OrderMessage message){
+    ordersStream.tryEmitNext(message);
   }
 
-  public Flux<Order> getOrdersStream() {
+  public Flux<OrderMessage> getOrdersStream() {
     return ordersStream.asFlux();
   }
 }
