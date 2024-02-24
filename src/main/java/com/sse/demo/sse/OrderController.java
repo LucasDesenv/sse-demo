@@ -2,6 +2,7 @@ package com.sse.demo.sse;
 
 import com.sse.demo.domain.Order;
 import com.sse.demo.service.OrderService;
+import com.sse.demo.sqs.OrderMessage;
 import com.sse.demo.sqs.OrderNotifier;
 import io.swagger.v3.oas.annotations.tags.Tag;
 import lombok.AllArgsConstructor;
@@ -37,8 +38,8 @@ public class OrderController {
   }
 
   @GetMapping("/notifications")
-  public Flux<ServerSentEvent<Order>> notifications() {
-    return orderNotifier.getOrdersStream().map(s -> ServerSentEvent.builder(s).id(s.getId()).build());
+  public Flux<ServerSentEvent<OrderMessage>> notifications() {
+    return orderNotifier.getOrdersStream().map(s -> ServerSentEvent.builder(s).id(s.getMessage()).build());
   }
 
 
