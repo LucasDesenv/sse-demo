@@ -1,18 +1,22 @@
 package com.sse.demo.sse;
 
+import com.sse.demo.domain.repositories.OrderRepository;
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.autoconfigure.web.reactive.AutoConfigureWebTestClient;
 import org.springframework.boot.test.context.SpringBootTest;
+import org.springframework.boot.test.mock.mockito.MockBean;
 import org.springframework.test.web.reactive.server.WebTestClient;
 import reactor.core.publisher.Flux;
 import reactor.test.StepVerifier;
 
 @SpringBootTest(webEnvironment = SpringBootTest.WebEnvironment.RANDOM_PORT)
 @AutoConfigureWebTestClient
-public class WordsAPITest {
+public class WordControllerTest {
   @Autowired
   private WebTestClient webTestClient;
+  @MockBean
+  private OrderRepository orderRepository;
 
   @Test
   void shouldSubscribeToWords() {

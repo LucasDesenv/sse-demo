@@ -1,4 +1,4 @@
-package com.sse.demo.sse;
+package com.sse.demo.rest;
 
 import com.sse.demo.domain.Order;
 import com.sse.demo.service.OrderService;

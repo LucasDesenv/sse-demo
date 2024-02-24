@@ -1,6 +1,6 @@
 package com.sse.demo.config;
 
-import com.sse.demo.sse.ServerSentEventWebFluxAPI;
+import com.sse.demo.rest.ServerSentEventController;
 import io.swagger.v3.core.util.PrimitiveType;
 import io.swagger.v3.oas.annotations.OpenAPIDefinition;
 import io.swagger.v3.oas.models.Components;
@@ -25,6 +25,6 @@ public class OpenApiConfiguration {
 
   @Bean
   public GroupedOpenApi groupOpenApiLocal() {
-    return GroupedOpenApi.builder().group("v1").packagesToScan(ServerSentEventWebFluxAPI.class.getPackageName()).build();
+    return GroupedOpenApi.builder().group("v1").packagesToScan(ServerSentEventController.class.getPackageName()).build();
   }
 }
