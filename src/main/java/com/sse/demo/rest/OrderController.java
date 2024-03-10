@@ -15,8 +15,7 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 import reactor.core.publisher.Flux;
-
-import java.util.List;
+import reactor.core.publisher.Mono;
 
 @RestController
 @RequestMapping("/orders")
@@ -27,13 +26,13 @@ public class OrderController {
   private final OrderNotifier orderNotifier;
 
   @GetMapping
-  public List<Order> findAll() {
+  public Flux<Order> findAll() {
     return orderService.findAll();
   }
 
   @PostMapping
-  public ResponseEntity<Order> save(@RequestBody Order order) {
-    Order orderSaved = orderService.save(order);
+  public ResponseEntity<Mono<Order>> save(@RequestBody Order order) {
+    Mono<Order> orderSaved = orderService.save(order);
     return ResponseEntity.status(HttpStatus.CREATED).body(orderSaved);
   }
 

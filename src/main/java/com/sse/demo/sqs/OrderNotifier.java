@@ -1,6 +1,5 @@
 package com.sse.demo.sqs;
 
-import com.sse.demo.domain.Order;
 import org.springframework.stereotype.Component;
 import reactor.core.publisher.Flux;
 import reactor.core.publisher.Sinks;

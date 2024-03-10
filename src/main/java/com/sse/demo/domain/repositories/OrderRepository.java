@@ -1,9 +1,7 @@
 package com.sse.demo.domain.repositories;
 
 import com.sse.demo.domain.Order;
-import org.socialsignin.spring.data.dynamodb.repository.EnableScan;
-import org.springframework.data.repository.CrudRepository;
+import org.springframework.data.mongodb.repository.ReactiveMongoRepository;
 
-@EnableScan
-public interface OrderRepository extends CrudRepository<Order, String> {
+public interface OrderRepository extends ReactiveMongoRepository<Order, String> {
 }
